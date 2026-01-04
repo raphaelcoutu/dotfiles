@@ -14,10 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {
         "/bluz71/vim-nightfly-colors",
+        name = "nightfly",
+        lazy = false,
         priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme nightfly]])
-        end,
     },
     { "tpope/vim-repeat" },
     { "tpope/vim-commentary" },
@@ -45,10 +44,10 @@ require("lazy").setup({
         },
         config = function()
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc= "Find Files"})
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "Find with Grep"})
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = "Find in Buffer"})
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Help tags"})
         end
     },
     { 
@@ -67,5 +66,26 @@ require("lazy").setup({
         keys = {
 
         }
-    }
+    },
+    config = function()
+        vim.cmd([[colorscheme nightfly]])
+    end,
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+    },
 })
