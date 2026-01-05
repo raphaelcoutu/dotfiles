@@ -13,10 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "/bluz71/vim-nightfly-colors",
+        "bluz71/vim-nightfly-colors",
         name = "nightfly",
         lazy = false,
         priority = 1000,
+        config = function()
+            vim.cmd([[colorscheme nightfly]])
+        end,
     },
     { "tpope/vim-repeat" },
     { "tpope/vim-commentary" },
@@ -67,9 +70,6 @@ require("lazy").setup({
 
         }
     },
-    config = function()
-        vim.cmd([[colorscheme nightfly]])
-    end,
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -88,4 +88,28 @@ require("lazy").setup({
             },
         },
     },
+    {
+        "folke/snacks.nvim",
+        opts= {
+            picker = {
+                enabled = true
+            }
+        }
+    },
+    {
+        'saghen/blink.cmp',
+        dependencies = {'rafamadriz/friendly-snippets'},
+        version = '1.*',
+
+        --@module 'blink.cmp'
+        --@type blink.cmp.Config
+        opts = {
+            keymap = {preset='default'},
+            apperance = {nerd_font_variant = 'mono'},
+            completion = {documentation = {auto_show=false} },
+            sources = {
+                default = {'lsp', 'path', 'snippets', 'buffer'}
+            }
+        }
+    }
 })
