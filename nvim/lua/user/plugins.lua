@@ -19,7 +19,7 @@ require("lazy").setup({
         priority = 1000,
         config = function()
             vim.cmd([[colorscheme nightfly]])
-        end,
+        end 
     },
     { "tpope/vim-repeat" },
     { "tpope/vim-commentary" },
@@ -39,7 +39,7 @@ require("lazy").setup({
     },
     {
         "nvim-telescope/telescope.nvim", tag = '0.1.5',
-        dependencies = { 
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
             "nvim-telescope/telescope-live-grep-args.nvim",
@@ -53,7 +53,7 @@ require("lazy").setup({
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Help tags"})
         end
     },
-    { 
+    {
         "nvim-treesitter/nvim-treesitter",
         opts = {
             ensure_installed = {
@@ -67,8 +67,11 @@ require("lazy").setup({
         "Wansmer/treesj",
         dependencies = {'nvim-treesitter/nvim-treesitter'},
         keys = {
-
-        }
+            '<space>m', '<space>j', '<space>s'
+        },
+        config = function()
+            require('treesj').setup({})
+        end
     },
     {
         "folke/which-key.nvim",
