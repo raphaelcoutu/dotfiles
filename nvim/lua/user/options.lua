@@ -1,40 +1,42 @@
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+local opt = vim.opt
+
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.tabstop = 4
 vim.softtabstop = 4
 
-vim.opt.smartindent = true
+opt.smartindent = true
 
-vim.opt.wrap = false
+opt.wrap = false
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
-vim.opt.wildmode = 'longest:full,full'
+opt.wildmode = 'longest:full,full'
 
-vim.opt.title = true
-vim.opt.mouse = 'a'
+opt.title = true
+opt.mouse = 'a'
 
-vim.opt.termguicolors = true
+opt.termguicolors = true
 
-vim.opt.spell = true
+opt.spell = true
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.ignorecase = true
+opt.smartcase = true
 
-vim.opt.list = true
-vim.opt.listchars = { trail = '·', tab = '> ' }
-vim.opt.fillchars:append({ eob = ' '})
+opt.list = true
+opt.listchars = { trail = '·', tab = '>-' }
+opt.fillchars:append({ eob = ' '})
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+opt.splitbelow = true
+opt.splitright = true
 
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.confirm = true
+opt.clipboard = 'unnamedplus'
+opt.confirm = true
 
-vim.opt.undofile = true
-vim.opt.backup = true
-vim.opt.backupdir:remove('.')
+opt.undofile = true
+opt.backup = true
+opt.backupdir:remove('.')

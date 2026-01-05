@@ -10,13 +10,12 @@ return {
         require('mason-lspconfig').setup({ automatic_installation = true })
 
         vim.lsp.config('intelephense', {})
-        vim.lsp.config('phpactor', {})
+        vim.lsp.config('phpactor',{})
+        vim.lsp.config('tailwindcss', {})
 
         vim.lsp.config('lspconfig', {
             filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
         })
-
-        vim.lsp.config('tailwindcss', {})
 
         -- Keymaps
         vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
